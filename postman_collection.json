@@ -1,0 +1,39 @@
+{
+  "info": {
+    "name": "TWC Organization API",
+    "_postman_id": "twc-org-api",
+    "description": "Basic collection for Organization Management API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Health",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": "{{base_url}}/health"
+      }
+    },
+    {
+      "name": "Create Organization",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"organization_name\": \"alpha\",\n  \"email\": \"admin@example.com\",\n  \"password\": \"securepass\"\n}" },
+        "url": "{{base_url}}/org/create"
+      }
+    },
+    {
+      "name": "Admin Login",
+      "request": {
+        "method": "POST",
+        "header": [{ "key": "Content-Type", "value": "application/json" }],
+        "body": { "mode": "raw", "raw": "{\n  \"email\": \"admin@example.com\",\n  \"password\": \"securepass\"\n}" },
+        "url": "{{base_url}}/admin/login"
+      }
+    }
+  ],
+  "variable": [
+    { "key": "base_url", "value": "http://127.0.0.1:8000" }
+  ]
+}
