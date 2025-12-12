@@ -21,7 +21,9 @@ jobs:
           pip install -r requirements.txt
       - name: Setup test environment
         run: |
-          echo "JWT_SECRET=test_secret_key_for_ci_only_do_not_use_in_production" > .env
+          echo "MONGO_URL=mongodb://localhost:27017/" > .env
+          echo "MASTER_DB_NAME=test_db" >> .env
+          echo "JWT_SECRET=test_secret_key_for_ci_only_do_not_use_in_production" >> .env
           echo "JWT_ALGORITHM=HS256" >> .env
           echo "TOKEN_EXPIRE_HOURS=24" >> .env
       - name: Run simple unit tests
