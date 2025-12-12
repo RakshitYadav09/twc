@@ -19,6 +19,11 @@ jobs:
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
+      - name: Setup test environment
+        run: |
+          echo "JWT_SECRET=test_secret_key_for_ci_only_do_not_use_in_production" > .env
+          echo "JWT_ALGORITHM=HS256" >> .env
+          echo "TOKEN_EXPIRE_HOURS=24" >> .env
       - name: Run simple unit tests
         run: |
           python tests/run_tests.py
